@@ -11,3 +11,9 @@ display(df)
 # Write the dataframe to csv file called "output.csv" inside the Output Folder
 
 df.write.csv("Output/writecsv.csv",header=True)
+
+# NOTE : Output will be partitioned because of the way in which Pyspark and Databricks works
+
+# To confirm that output file is accurate, you can write
+
+display(spark.read.csv("dbfs:/Output/output.csv", header=True))
